@@ -1,4 +1,4 @@
-package com.albert.study.slidingview;
+package com.albert.study.slidingviewlib;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -79,9 +79,9 @@ public class SlidingView extends CoordinatorLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.mRightView = findViewById(R.id.id_sliding_right_view);
-        this.mLeftView = findViewById(R.id.id_sliding_left_view);
-        this.mMoveView = findViewById(R.id.id_sliding_move_view);
+        this.mRightView = findViewById(R.id.albert_sliding_view_id_sliding_right_view);
+        this.mLeftView = findViewById(R.id.albert_sliding_view_id_sliding_left_view);
+        this.mMoveView = findViewById(R.id.albert_sliding_view_id_sliding_move_view);
 
         if (this.mMoveView == null) {
             throw new NullPointerException("this.mMoveView=null,can not find @id/id_sliding_move_view");
