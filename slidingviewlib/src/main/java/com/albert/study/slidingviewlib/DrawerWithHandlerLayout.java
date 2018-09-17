@@ -121,12 +121,14 @@ public class DrawerWithHandlerLayout extends CoordinatorLayout {
      * 关闭抽屉
      */
     public void closeDrawer() {
-        AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mHandlerView, "TranslationX", mHandlerView.getTranslationX(), 0);
-        ObjectAnimator colorAnimator = ObjectAnimator.ofArgb(this, "BackgroundColor", 0x9a000000, 0x00000000);
-        animatorSet.playTogether(animator, colorAnimator);
-        animatorSet.setDuration(200);
-        animatorSet.start();
+        if (mHandlerView.getTranslationX() != 0) {
+            AnimatorSet animatorSet = new AnimatorSet();
+            ObjectAnimator animator = ObjectAnimator.ofFloat(mHandlerView, "TranslationX", mHandlerView.getTranslationX(), 0);
+            ObjectAnimator colorAnimator = ObjectAnimator.ofArgb(this, "BackgroundColor", 0x9a000000, 0x00000000);
+            animatorSet.playTogether(animator, colorAnimator);
+            animatorSet.setDuration(200);
+            animatorSet.start();
+        }
     }
 
     @Override
