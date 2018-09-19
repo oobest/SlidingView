@@ -51,6 +51,12 @@ public class DrawerWithHandlerLayout extends CoordinatorLayout {
 
     private GestureDetector mGestureDetector;
 
+    private OnDrawerListener mOnDrawerListener;
+
+    public void setOnDrawerListener(OnDrawerListener onDrawerListener) {
+        mOnDrawerListener = onDrawerListener;
+    }
+
     public DrawerWithHandlerLayout(Context context) {
         this(context, null);
     }
@@ -63,6 +69,10 @@ public class DrawerWithHandlerLayout extends CoordinatorLayout {
         super(context, attrs, defStyleAttr);
         touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
+    }
+
+    public interface OnDrawerListener {
+        void onDrawStatus(int status);
     }
 
     @Override
@@ -115,6 +125,9 @@ public class DrawerWithHandlerLayout extends CoordinatorLayout {
         animatorSet.playTogether(animator, colorAnimator);
         animatorSet.setDuration(200);
         animatorSet.start();
+        if (mOnDrawerListener != null) {
+            mOnDrawerListener.onDrawStatus(1);
+        }
     }
 
     /**
@@ -128,6 +141,9 @@ public class DrawerWithHandlerLayout extends CoordinatorLayout {
             animatorSet.playTogether(animator, colorAnimator);
             animatorSet.setDuration(200);
             animatorSet.start();
+        }
+        if (mOnDrawerListener != null) {
+            mOnDrawerListener.onDrawStatus(1);
         }
     }
 
