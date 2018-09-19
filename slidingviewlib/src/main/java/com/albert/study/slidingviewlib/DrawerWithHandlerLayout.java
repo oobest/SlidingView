@@ -143,7 +143,7 @@ public class DrawerWithHandlerLayout extends CoordinatorLayout {
             animatorSet.start();
         }
         if (mOnDrawerListener != null) {
-            mOnDrawerListener.onDrawStatus(1);
+            mOnDrawerListener.onDrawStatus(0);
         }
     }
 
